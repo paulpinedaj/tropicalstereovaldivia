@@ -1303,6 +1303,33 @@
             .player-bar .bar-btn { padding: 6px 16px; font-size: 0.8rem; }
             .instagram-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
         }
+
+
+/* ===== FIX RÁPIDO PARA CARRUSELES EN MÓVIL ===== */
+@media (max-width: 768px) {
+    .carousel-item {
+        width: 50% !important;
+        min-width: 0 !important;
+        flex: 0 0 50% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-item {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+}
+
+.carousel-track {
+    width: 100% !important;
+}
+
+.carousel-wrapper {
+    overflow: hidden !important;
+}
+
+
     </style>
 </head>
 <body>
@@ -1388,7 +1415,6 @@
                         <span><i class="fas fa-signal"></i> Streaming 128 kbps</span>
                         <span><i class="fas fa-microphone"></i> Locución en vivo</span>
                         <span><i class="fas fa-music"></i> Música 24/7</span>
-                        <span><i class="fas fa-users"></i> +5.000 oyentes</span>
                     </div>
 
                     <p style="margin-top: 15px; font-size: 0.85rem; color: var(--muted);">
