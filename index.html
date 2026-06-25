@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tropical Stereo Valdivia 89.5 FM</title>
+
+<meta name="description" content="Tropical Stereo Valdivia 89.5 FM - Música, noticias, actualidad y entretención.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+:root{
+--bg:#060b17;
+--card:rgba(255,255,255,.06);
+--border:rgba(255,255,255,.1);
+--cyan:#00e5ff;
+--purple:#7c3aed;
+--pink:#ff006e;
+--text:#fff;
+--muted:#b6bfd0;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Inter,Segoe UI,sans-serif;
+background:
+radial-gradient(circle at top left,#172554 0%,transparent 35%),
+radial-gradient(circle at top right,#4c1d95 0%,transparent 35%),
+#060b17;
+color:white;
+overflow-x:hidden;
+}
+
+.container{
+width:min(1200px,92%);
+margin:auto;
+}
+
+section{
+padding:80px 0;
+}
+
+.glass{
+background:var(--card);
+backdrop-filter:blur(18px);
+border:1px solid var(--border);
+border-radius:24px;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:600px;
+height:600px;
+background:var(--cyan);
+filter:blur(180px);
+opacity:.08;
+left:-200px;
+top:-200px;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:600px;
+height:600px;
+background:var(--pink);
+filter:blur(180px);
+opacity:.08;
+right:-200px;
+bottom:-200px;
+}
+
+.logo{
+width:220px;
+max-width:80%;
+margin-bottom:20px;
+filter:drop-shadow(0 0 30px rgba(0,229,255,.3));
+}
+
+.live{
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+background:rgba(255,0,110,.15);
+border:1px solid rgba(255,0,110,.4);
+margin-bottom:20px;
+font-weight:700;
+}
+
+.hero h1{
+font-size:clamp(3rem,8vw,6rem);
+line-height:1;
+margin-bottom:10px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+color:var(--muted);
+line-height:1.8;
+}
+
+.btn{
+display:inline-block;
+padding:16px 30px;
+margin-top:30px;
+background:linear-gradient(135deg,var(--cyan),var(--purple));
+color:white;
+text-decoration:none;
+border-radius:999px;
+font-weight:700;
+}
+
+.stats{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.stat{
+padding:20px 30px;
+}
+
+.stat strong{
+display:block;
+font-size:2rem;
+}
+
+.title{
+font-size:2.2rem;
+margin-bottom:25px;
+}
+
+.player-section{
+text-align:center;
+}
+
+.player-wrapper{
+padding:30px;
+}
+
+.player-wrapper h3{
+margin-bottom:10px;
+}
+
+.player-wrapper p{
+color:var(--muted);
+margin-bottom:25px;
+}
+
+.news-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:25px;
+}
+
+.news{
+overflow:hidden;
+}
+
+.news-image{
+height:220px;
+background:linear-gradient(135deg,var(--purple),var(--cyan));
+}
+
+.news-content{
+padding:20px;
+}
+
+.news-content h3{
+margin-bottom:10px;
+}
+
+.news-content p{
+color:var(--muted);
+line-height:1.7;
+}
+
+.schedule{
+display:grid;
+gap:15px;
+}
+
+.schedule-item{
+padding:20px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.time{
+color:var(--cyan);
+font-weight:700;
+}
+
+.team{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.member{
+padding:25px;
+text-align:center;
+}
+
+.avatar{
+width:110px;
+height:110px;
+border-radius:50%;
+margin:auto;
+margin-bottom:15px;
+background:linear-gradient(135deg,var(--cyan),var(--purple));
+}
+
+.member p{
+color:var(--muted);
+}
+
+.ads-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.ad{
+padding:35px;
+text-align:center;
+font-weight:700;
+font-size:1.1rem;
+}
+
+.categories{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.category{
+padding:30px;
+text-align:center;
+font-weight:700;
+}
+
+.events{
+display:grid;
+gap:20px;
+}
+
+.event{
+padding:25px;
+}
+
+.date{
+color:var(--cyan);
+font-weight:700;
+margin-bottom:10px;
+}
+
+.whatsapp{
+text-align:center;
+padding:40px;
+}
+
+.whatsapp-btn{
+display:inline-block;
+padding:18px 30px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:999px;
+font-weight:700;
+margin-top:20px;
+}
+
+.socials{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.social{
+padding:15px 25px;
+text-decoration:none;
+color:white;
+}
+
+.contact{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.contact-box{
+padding:25px;
+}
+
+footer{
+padding:60px 20px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer p{
+color:var(--muted);
+margin-top:10px;
+}
+
+.player-bar{
+position:fixed;
+bottom:15px;
+left:15px;
+right:15px;
+z-index:999;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.player-bar strong{
+color:var(--cyan);
+}
+
+@media(max-width:900px){
+
+.news-grid{
+grid-template-columns:1fr;
+}
+
+.ads-grid{
+grid-template-columns:1fr;
+}
+
+.title{
+font-size:1.8rem;
+}
+
+.hero{
+padding:40px 0;
+}
+
+.hero h1{
+font-size:3rem;
+}
+
+.player-bar{
+font-size:.85rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="live">
+🔴 EN VIVO · 89.5 FM
+</div>
+
+<br>
+
+<img src="img/logo-tropicalstereovaldivia.png" class="logo">
+
+<h1>Tropical Stereo</h1>
+
+<p>
+La energía que conecta a Valdivia y toda la Región de Los Ríos.
+Música, noticias, actualidad y entretención las 24 horas.
+</p>
+
+<a href="#radio" class="btn">
+▶ Escuchar Ahora
+</a>
+
+<div class="stats">
+
+<div class="glass stat">
+<strong>89.5</strong>
+FM
+</div>
+
+<div class="glass stat">
+<strong>24/7</strong>
+En Vivo
+</div>
+
+<div class="glass stat">
+<strong>Valdivia</strong>
+Chile
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="radio">
+
+<div class="container">
+
+<h2 class="title">Escucha Nuestra Señal Online</h2>
+
+<div class="glass player-wrapper">
+
+<h3>🔴 Tropical Stereo Valdivia</h3>
+
+<p>
+Escucha nuestra transmisión en vivo desde cualquier lugar.
+</p>
+
+<link href="https://html5players.mexiserver.com/1/css/icast.min.css" rel="stylesheet">
+
+<div id="stream1"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Noticias Destacadas</h2>
+
+<div class="news-grid">
+
+<div class="glass news">
+<div class="news-image"></div>
+<div class="news-content">
+<h3>Valdivia impulsa nuevos proyectos urbanos</h3>
+<p>Importantes iniciativas para mejorar la calidad de vida y potenciar el desarrollo local.</p>
+</div>
+</div>
+
+<div class="glass news">
+<div class="news-image"></div>
+<div class="news-content">
+<h3>Turismo en crecimiento</h3>
+<p>La ciudad continúa recibiendo visitantes de todo Chile.</p>
+</div>
+</div>
+
+<div class="glass news">
+<div class="news-image"></div>
+<div class="news-content">
+<h3>Agenda Cultural</h3>
+<p>Eventos y actividades para toda la comunidad.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Programación</h2>
+
+<div class="schedule">
+
+<div class="glass schedule-item">
+<span class="time">06:00 - 10:00</span>
+<span>Buenos Días Valdivia</span>
+<span>Carlos Soto</span>
+</div>
+
+<div class="glass schedule-item">
+<span class="time">10:00 - 13:00</span>
+<span>Tropical Hits</span>
+<span>Andrea Muñoz</span>
+</div>
+
+<div class="glass schedule-item">
+<span class="time">13:00 - 16:00</span>
+<span>Noticias y Actualidad</span>
+<span>Patricio Herrera</span>
+</div>
+
+<div class="glass schedule-item">
+<span class="time">16:00 - 20:00</span>
+<span>Tarde Tropical</span>
+<span>Camila Rojas</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Nuestro Equipo</h2>
+
+<div class="team">
+
+<div class="glass member">
+<div class="avatar"></div>
+<h3>Carlos Soto</h3>
+<p>Director General</p>
+</div>
+
+<div class="glass member">
+<div class="avatar"></div>
+<h3>Andrea Muñoz</h3>
+<p>Locutora</p>
+</div>
+
+<div class="glass member">
+<div class="avatar"></div>
+<h3>Patricio Herrera</h3>
+<p>Periodista</p>
+</div>
+
+<div class="glass member">
+<div class="avatar"></div>
+<h3>Camila Rojas</h3>
+<p>Locutora</p>
+</div>
+
+<div class="glass member">
+<div class="avatar"></div>
+<h3>Rodrigo Díaz</h3>
+<p>Producción</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Empresas que Confían en Nosotros</h2>
+
+<div class="ads-grid">
+
+<div class="glass ad" id="ad1">Ferretería Valdivia</div>
+<div class="glass ad" id="ad2">Hotel Río Cruces</div>
+<div class="glass ad" id="ad3">Restaurant Costa Sur</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Categorías</h2>
+
+<div class="categories">
+
+<div class="glass category">Comunidad</div>
+<div class="glass category">Actualidad</div>
+<div class="glass category">Cultura</div>
+<div class="glass category">Turismo</div>
+<div class="glass category">Eventos</div>
+<div class="glass category">Deportes</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Próximos Eventos</h2>
+
+<div class="events">
+
+<div class="glass event">
+<div class="date">12 JULIO</div>
+<h3>Festival Costumbrista</h3>
+</div>
+
+<div class="glass event">
+<div class="date">19 JULIO</div>
+<h3>Expo Emprendedores</h3>
+</div>
+
+<div class="glass event">
+<div class="date">26 JULIO</div>
+<h3>Corrida Familiar Valdivia</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">WhatsApp de la Radio</h2>
+
+<div class="glass whatsapp">
+
+<p>Participa, envía saludos y mensajes en vivo.</p>
+
+<a href="https://wa.me/56956524176" class="whatsapp-btn">
+📱 +56 9 5652 4176
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Síguenos</h2>
+
+<div class="socials">
+
+<a href="#" class="glass social">
+<i class="fab fa-instagram"></i> Instagram
+</a>
+
+<a href="#" class="glass social">
+<i class="fab fa-facebook"></i> Facebook
+</a>
+
+<a href="#" class="glass social">
+<i class="fab fa-x-twitter"></i> X
+</a>
+
+<a href="#" class="glass social">
+<i class="fab fa-youtube"></i> YouTube
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="title">Contacto</h2>
+
+<div class="contact">
+
+<div class="glass contact-box">
+<h3>📍 Dirección</h3>
+<p>Ramón Picarte #1389<br>Valdivia</p>
+</div>
+
+<div class="glass contact-box">
+<h3>☎ Teléfono</h3>
+<p>63 2280111</p>
+</div>
+
+<div class="glass contact-box">
+<h3>✉ Correo</h3>
+<p>contacto@radiotropicalstereo.cl</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<img src="img/logo-tropicalstereovaldivia.png" width="120">
+
+<h3>Tropical Stereo Valdivia 89.5 FM</h3>
+
+<p>
+La voz de Valdivia conectando a la comunidad.
+</p>
+
+<p>
+Diseñado y desarrollado por <strong>Skeleton.cl</strong>
+</p>
+
+</footer>
+
+<div class="glass player-bar">
+<div>
+<strong>🔴 Tropical Stereo</strong><br>
+89.5 FM Valdivia
+</div>
+<div>
+<a href="#radio" style="color:white;text-decoration:none;">
+▶ Escuchar
+</a>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://html5players.mexiserver.com/1/js/icast.min.js"></script>
+
+<script>
+
+$("#stream1").icast({
+URL:"https://sonic-us.fhost.cl:8026",
+version:"2",
+artwork:true,
+show_listeners:true,
+logo:"https://web.radiotropicalstereo.cl/images/472/7991950/VIVO.png",
+autoplay:false
+});
+
+const sponsors=[
+"Ferretería Valdivia",
+"Hotel Río Cruces",
+"Restaurant Costa Sur",
+"Automotora Valdivia",
+"Centro Comercial Valdivia",
+"Constructora Los Ríos",
+"Panadería Sur",
+"Farmacia Austral",
+"Tienda Náutica"
+];
+
+let pos=0;
+
+setInterval(()=>{
+
+document.getElementById("ad1").textContent=sponsors[pos%sponsors.length];
+document.getElementById("ad2").textContent=sponsors[(pos+1)%sponsors.length];
+document.getElementById("ad3").textContent=sponsors[(pos+2)%sponsors.length];
+
+pos++;
+
+},3000);
+
+</script>
+
+</body>
+</html>
